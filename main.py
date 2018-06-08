@@ -1,5 +1,5 @@
 from icrawler.builtin import BaiduImageCrawler, BingImageCrawler, GoogleImageCrawler
-ROOT_DIR ='/home/ta/Projects/crawl_image/downloads'
+ROOT_DIR ='./downloads'
 import os
 def Query(query, verb, google=True,google_year=1, bing=True, baidu=True):
     SAVE_DIR = os.path.join(ROOT_DIR, verb)

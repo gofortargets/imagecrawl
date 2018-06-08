@@ -1,8 +1,11 @@
 from icrawler.builtin import BaiduImageCrawler, BingImageCrawler, GoogleImageCrawler
-ROOT_DIR ='downloads'
+ROOT_DIR ='./downloads'
 import os
 def Query(query, verb, google=True,google_year=1, bing=True, baidu=True):
     SAVE_DIR = os.path.join(ROOT_DIR, verb)
+
+    if not os.path.exists(SAVE_DIR):
+        os.makedirs(SAVE_DIR)
 
     # SAVE_DIR = os.path.join(ROOT_DIR, query)
     if google:

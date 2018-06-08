@@ -3,17 +3,19 @@ ROOT_DIR ='./downloads'
 import os
 def Query(query, verb, google=True,google_year=1, bing=True, baidu=True):
     SAVE_DIR = os.path.join(ROOT_DIR, verb)
-
     if not os.path.exists(SAVE_DIR):
         os.makedirs(SAVE_DIR)
 
     # SAVE_DIR = os.path.join(ROOT_DIR, query)
-    if google:
+    if google: 
+        google_path = os.path.join(SAVE_DIR, 'Google')
+        if not os.path.exists(google_path):
+            os.makedirs(google_path)
         google_crawler = GoogleImageCrawler(
             feeder_threads=1,
             parser_threads=1,
             downloader_threads=4,
-            storage={'root_dir': os.path.join(SAVE_DIR, 'Google')})
+            storage={'root_dir': google_path})
         now_year = 2018
         for past_year in range(google_year):
             from_year = now_year - past_year
